@@ -1,0 +1,24 @@
+﻿Phase 1: Environment & Security Foundation
+Before building the app, we must ensure the "Secure Gateway" and PII stripping foundations are ready.
+
+[ ] Service Enablement: Identify and enable all required APIs (Vertex AI, Cloud Run, Cloud DLP, Document AI, etc.).
+[ ] Security Perimeter: Create a dedicated Service Account with Least Privilege roles for the application to interact with Vertex AI and GCS.
+[ ] Storage Setup: Configure a Cloud Storage bucket with Public Access Prevention and Uniform Bucket-Level Access for secure document ingestion.
+[ ] PII Protection: Define a Cloud DLP (Sensitive Data Protection) inspection template to identify and mask PII (Names, Locations, IDs) during ingestion.
+Phase 2: User Input Portal (UIP) Development
+[ ] Containerization: Create a Dockerfile for a Python (Flask/FastAPI) or Node.js frontend/backend.
+[ ] Normalization Logic: Develop the routine using Document AI to extract structured text from .pdf and .docx files.
+[ ] PII Stripping Integration: Write the code to send normalized text to the DLP API before saving it as a JSON payload.
+[ ] Deployment: Deploy the initial UIP to Cloud Run.
+Phase 3: Frontier AI Risk Engine (FAIRE)
+[ ] Vertex AI Integration: Develop the core engine logic to send the JSON payload to Gemini 1.5 Pro via the Vertex AI SDK.
+[ ] Prompt Engineering: Create a system prompt that enforces the "Defence-specific taxonomies" and "Historical failure modes" logic.
+[ ] Mitigation Scoring: Implement the mathematical scoring logic (Cost/Complexity/Time) within the LLM's response schema (JSON).
+[ ] Vector Search Setup: Initialize a Vertex AI Vector Search index to store and retrieve Defence standards for cross-referencing.
+Phase 4: Structured Outcome & Interactive Baseline (SOIB)
+[ ] Dashboard Build: Extend the UI to visualize risk categories (Kinetic Safety, Cyber, etc.) using the structured JSON output from FAIRE.
+[ ] Compliance Artifacts: Develop a Cloud Function triggered by a "Finalize" action to generate exportable compliance documents.
+Immediate Next Step: Infrastructure Preparation
+To start, I need to see what is already enabled in your project so I don't suggest redundant steps. I'll begin by checking your enabled services and existing storage.
+
+Shall I proceed with checking your project's current state and enabling the first set of required APIs?
